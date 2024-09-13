@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход в аккаунт</title>
+  <style>
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Helvetica', sans-serif;
+    }
+
+    body {
+      /* Выравнивание по вертикали */
+      height: 100vh;            /* Высота страницы на всю высоту окна */
+      background-color: #f5f5f5;
+      margin: 0;                /* Убираем отступы */
+    }
+
+    /* Основной стиль для header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #FF0000; /* Красный фон */
+      padding: 10px 20px;
+      color: #FFFFFF; /* Белый цвет текста */
+      height: 60px; /* Высота логотипов */
+    }
+
+    .x {
+      width: 20px;
+      margin-right: 20px;
+    }
+
+    .header-logo {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-logo img {
+      height: 40px; /* Высота логотипов */
+      margin-right: 20px; /* Отступ между логотипами */
+    }
+
+    .header-menu {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-menu svg {
+      fill: #FFFFFF; /* Белый цвет для иконки меню */
+    }
+
+    .logo-right {
+      height: 40px;
+    }
+
+    /* Медиа-запрос для уменьшения размеров на мобильных устройствах */
+    @media (max-width: 768px) {
+      .header {
+        height: 50px; /* Уменьшаем высоту header */
+        padding: 5px 15px; /* Уменьшаем отступы */
+      }
+
+      .header-logo img {
+        height: 35px; /* Уменьшаем высоту логотипов */
+        margin-right: 10px; /* Уменьшаем отступ между логотипами */
+      }
+
+      .x {
+        width: 15px; /* Уменьшаем размер иконки X */
+        margin-right: 10px;
+      }
+
+      .header-menu img {
+        width: 40px; /* Уменьшаем размер иконки меню */
+      }
+
+      .logo-right {
+        height: 25px;
+      }
+    }
+
+    /* Основной стиль для контейнера логина */
+    .login-container {
+      background-color: white;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      position: relative;
+      margin: 150px auto;
+      text-align: center;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+      text-align: left;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: calc(100% - 20px);
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    input[type="text"]:focus,
+    input[type="password"]:focus {
+      border-color: #ff4f41;
+      outline: none;
+
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #ff4f41;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #ff4f41;
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .form-footer a {
+      color: #ff4f41;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+
+  </style>
+</head>
+<header class="header">
+  <div class="header-menu">
+    <!-- Иконка меню -->
+    <img src="icon-park_hamburger-.svg" alt="Логотип Гранты Первых" class="logo-menu">
+
+  </div>
+  <div class="header-logo">
+    <img src="Group.svg" alt="Логотип Гранты Первых" class="logo-left">
+    <svg class="x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 9" fill="none"> <path d="M1 9L0 8.1L4 4.5L0 0.9L1 0L5 3.6L9 0L10 0.9L6 4.5L10 8.1L9 9L5 5.4L1 9Z" fill="white"></path> </svg>
+    <svg alt="Логотип Синергия" class="logo-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 159 19" fill="none"> <path d="M38.962 12.0306L41.7115 15.2001C41.168 15.830625 40.55075 16.385475 39.851 16.85625C38.287 17.949175 36.484 18.48725 34.426 18.48725C31.76725 18.48725 29.55275 17.6129 27.77475 15.864225C25.9965 14.11555 25.11575 11.980175 25.11575 9.45805C25.11575 6.935925 26.00475 4.800525 27.77475 3.05185C29.55275 1.3031825 31.76725 0.42885 34.426 0.42885C36.43475 0.42885 38.221 0.9836925 39.8015 2.08502C40.50125 2.58945 41.10225 3.1359 41.59625 3.716L38.84675 6.885475C38.47625 6.48195 38.07275 6.112025 37.62825 5.78415C36.591 5.05275 35.52925 4.682825 34.426 4.682825C33.11725 4.682825 32.01425 5.145225 31.11675 6.0616C30.2195 6.977975 29.76675 8.104475 29.76675 9.441225C29.76675 10.77795 30.2195 11.9045 31.11675 12.820875C32.01425 13.73725 33.11725 14.19965 34.426 14.19965C35.5045 14.19965 36.591 13.83815 37.67775 13.098325C38.147 12.804075 38.58325 12.44255 38.962 12.0306Z" fill="white"></path> <path d="M43.69525 18.007925V0.933125H48.231V10.323825L55.393 0.933125H59.336V18.007925H54.80025V8.617225L47.6385 18.007925H43.69525Z" fill="white"></path> <path d="M62.752 18.00785V0.933045H67.288V7.1543H73.3795V0.933045H77.91525V18.00785H73.3795V11.5428H67.288V18.00785H62.752Z" fill="white"></path> <path d="M81.33175 18.007925V0.933125H94.1075V5.0778H85.8675V7.5159H92.19775V11.4168H85.8675V13.854825H94.34625V17.9995H81.33175V18.007925Z" fill="white"></path> <path d="M96.80775 18.007925V0.933125H104.33175C106.15925 0.933125 107.6575 1.496415 108.81 2.631375C109.96225 3.757925 110.5385 5.1871 110.5385 6.91055C110.5385 8.634 109.96225 10.063225 108.81 11.189775C107.6575 12.316325 106.15925 12.888025 104.33175 12.888025H101.3435V18.007925H96.80775ZM101.3435 8.74335H104.093C104.61975 8.74335 105.06425 8.558375 105.443 8.19685C105.8135 7.82695 106.00275 7.406575 106.00275 6.918975C106.00275 6.43135 105.8135 6.002625 105.443 5.641125C105.0725 5.271225 104.61975 5.09465 104.093 5.09465H101.3435V8.74335Z" fill="white"></path> <path d="M113 18.007925V0.933125H124.70575V5.32165H117.544V18.007925H113Z" fill="white"></path> <path d="M126.6895 18.007925V0.933125H131.2255V10.323825L138.38725 0.933125H142.33025V18.007925H137.7945V8.617225L130.63275 18.007925H126.6895Z" fill="white"></path> <path d="M144.4295 18.035075L147.89525 11.69615C147.35175 11.435525 146.87425 11.082425 146.46275 10.620025C145.50775 9.6448 145.0305 8.37535 145.0305 6.81165C145.0305 5.15545 145.60675 3.75985 146.751 2.6417C147.89525 1.515155 149.35225 0.960285 151.122 0.960285H159V18.035075H154.46425V12.67135H151.9535L149.204 18.035075H144.4295ZM151.36075 8.526675H154.46425V5.1134H151.36075C150.834 5.1134 150.40575 5.27315 150.06825 5.601025C149.73075 5.9289 149.56625 6.33245 149.56625 6.82005C149.56625 7.307675 149.73075 7.711175 150.06825 8.03905C150.40575 8.3585 150.834 8.526675 151.36075 8.526675Z" fill="white"></path> <path d="M0 0V19H18.6042V0H0ZM3.1199 15.813725V3.186275H15.484275V15.813725H3.1199Z" fill="white"></path> <path d="M11.24495 15.1752V11.207075L9.5821 9.508825L11.2532 7.802175V3.83405L5.696625 9.508825L11.24495 15.1752Z" fill="white"></path></svg>
+  </div>
+
+</header>
+<body>
+
+
+
+<div class="login-container">
+  <h2>Вход в аккаунт</h2>
+  <form id="loginForm">
+    <label for="login">Логин (электронная почта или телефон):</label>
+    <input type="text" id="login" name="login" required placeholder="Введите ваш логин">
+
+    <label for="loginPassword">Пароль:</label>
+    <input type="password" id="loginPassword" name="loginPassword" required placeholder="Введите ваш пароль">
+
+    <button type="submit">Войти</button>
+  </form>
+</div>
+
+<script>
+
+  document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const email = document.getElementById('login').value;
+    const password = document.getElementById('loginPassword').value;
+
+    const loginData = {
+      email: email,
+      password: password
+    };
+
+    fetch('http://localhost:8000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(loginData)
+    })
+            .then(response => {
+              if (response.ok) {
+                return response.json(); // Получаем токен доступа
+              } else {
+                return response.json().then(data => {
+                  throw new Error('Ошибка входа: ' + data.message);
+                });
+              }
+            })
+            .then(data => {
+              localStorage.setItem('accessToken', data.access_token); // Сохраняем токен
+              alert('Вход выполнен успешно!');
+              window.location.href = '../athlete/index.html'; // Перенаправляем на страницу профиля
+            })
+            .catch(error => {
+              console.error('Ошибка:', error);
+              alert('Произошла ошибка при входе.');
+            });
+  });
+
+
+</script>
+
+</body>
+</html>

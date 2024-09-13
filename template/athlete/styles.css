@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica', sans-serif;
+}
+
+body {
+     /* Выравнивание по вертикали */
+    height: 100vh;            /* Высота страницы на всю высоту окна */
+    background-color: #f5f5f5;
+    margin: 0;                /* Убираем отступы */
+}
+
+/* Основной стиль для header */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FF0000; /* Красный фон */
+    padding: 10px 20px;
+    color: #FFFFFF; /* Белый цвет текста */
+    height: 60px; /* Высота логотипов */
+}
+
+.x {
+    width: 20px;
+    margin-right: 20px;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+}
+
+.header-logo img {
+    height: 40px; /* Высота логотипов */
+    margin-right: 20px; /* Отступ между логотипами */
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+}
+
+.header-menu svg {
+    fill: #FFFFFF; /* Белый цвет для иконки меню */
+}
+.logo-right{
+    height: 40px;
+}
+
+/* Медиа-запрос для уменьшения размеров на мобильных устройствах */
+@media (max-width: 768px) {
+    .header {
+        height: 50px; /* Уменьшаем высоту header */
+        padding: 5px 15px; /* Уменьшаем отступы */
+    }
+
+
+    .header-logo img {
+        height: 35px; /* Уменьшаем высоту логотипов */
+        margin-right: 10px; /* Уменьшаем отступ между логотипами */
+    }
+
+    .x {
+        width: 15px; /* Уменьшаем размер иконки X */
+        margin-right: 10px;
+    }
+
+    .header-menu img {
+        width: 40px; /* Уменьшаем размер иконки меню */
+    }
+    .logo-right{
+        height: 25px;
+    }
+}
+
+
+.top-right {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 300px; /* Размер изображения */
+    z-index: -1;
+    height: auto;
+}
+
+.dashboard {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.profile-card, .team-card, .results-card {
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 20px;
+    min-height: 350px;
+    width: 370px;
+    flex: 1 1 370px;
+    max-width: 370px;
+}
+
+.profile-photo {
+    width: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profile-card {
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding-bottom: 100px;
+    min-height: 350px;
+    width: 370px;
+    flex: 1 1 370px;
+    min-width: 370px;
+    text-align: center; /* Центрируем содержимое */
+}
+.profile-info {
+    padding-left: 0px;
+}
+.profile-card h3, .profile-card p {
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#name-display {
+    font-size: 2em;
+    font-weight: bold;
+}
+#last-name-display {
+    font-size: 2em;
+    font-weight: bold;
+}
+.buttons-container {
+    width: 100%; /* Вычисляем ширину 100% минус 40px */
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; /* Отступ между кнопками */
+    bottom: 10px;
+}
+
+.save-btn, .edit-btn {
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    width: calc(100% - 40px); /* Вычисляем ширину 100% минус 40px */
+
+}
+
+.save-btn:hover, .edit-btn:hover {
+    background-color: #ff4f41;
+}
+
+.input-container {
+    font-size: 1em;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.input-container input[type="text"],
+.input-container input[type="email"],
+.input-container input[type="tel"] {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding-right: 30px; /* добавляем пространство для крестика */
+    font-size: 1em;
+
+}
+
+.delete-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.delete-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.info-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.delete-btn {
+    margin-left: 10px;
+    color: red;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.info-row.editing .delete-btn {
+    display: inline;
+}
+
+.buttons-container button {
+    margin: 5px;
+}
+/* Центрирование заголовков в карточках */
+.events-card h3, .results-card h3 {
+    text-align: center;
+    font-size: 1.5em;  /* Размер текста заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+    font-weight: bold;  /* Более жирный шрифт */
+}
+
+/* Стиль для карточки команды */
+.team-card {
+    position: relative;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 40px;
+    min-height: 310px;
+    width: 370px;
+    flex: 1 1 370px;
+    max-width: 370px;
+    text-align: center; /* Центрируем содержимое */
+}
+
+.team-card h3 {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.team-card ul {
+    list-style-type: none; /* Убираем маркеры списка */
+    padding: 0;
+}
+
+.team-card li {
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+.team-add {
+    position: absolute;
+    top: 40%; /* Отступ от низа карточки */
+    left: 50%;
+    transform: translateX(-50%); /* Центрируем блок по горизонтали */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрируем содержимое по горизонтали */
+    justify-content: center; /* Центрируем содержимое по вертикали */
+    text-align: center; /* Центрируем текст */
+}
+
+.plus {
+    width: 40px;
+    margin-bottom: 10px; /* Отступ между иконкой и текстом */
+}
+
+.team-add p {
+    font-size: 1em;
+    color: #333;
+}
+
+.create-team-btn {
+    background-color: #FF0000;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 1em;
+    width: 100%;
+}
+
+.create-team-btn:hover {
+    background-color: #ff4f41;
+}
+
+.results-card {
+    position: relative;
+    min-height: 310px;
+}
+/* Popup окно */
+
+
